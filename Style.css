@@ -1,0 +1,754 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #ffffff;
+    color: black;
+     padding-top: 80px;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    width: 100%;
+    padding: 1rem 5%;
+    background: #ffffff; /* putih solid */
+    border-bottom: 1px solid #e5e5e5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: black;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links li a {
+    position: relative;
+    font-size: 1.05rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: red;
+    text-shadow: 0 0 0px red;
+}
+
+.nav-links li a::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: red;
+    transition: all .5s;
+}
+
+.nav-links li a:hover::before  {
+    width: 100%;
+}
+
+.btns {
+    display: flex;
+}
+
+.btn  {
+    padding: 0.5rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    background: white;
+    box-shadow: 0 0 3px black;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+    box-shadow: 0 0 25px white;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 3.5rem;
+    font-size: 25px;
+    text-shadow: 0 0 15px black;
+}
+
+h1 {
+    text-align: center;
+    font-size: 60px;
+    text-shadow: 0 0 15px black;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    font-size: 20px;
+    text-shadow: 0 0 15px black;
+}
+
+.hero {
+    min-height: 100vh;
+    background-image: url("img/paddy.avif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+}
+span {
+    color: gray;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.upcoming {
+    font-size: 40px;
+    text-shadow: none;
+    color: black;
+    margin-top: 4rem;
+    margin-bottom: 3.5rem;
+}
+
+/* card */
+
+.event-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 6%;
+    background: white;
+    border-bottom: none;
+}
+
+.event-left {
+    flex: 1;
+}
+
+.event-logo {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1;
+    text-shadow: none;
+}
+
+.event-logo span {
+    font-size: 28px;
+}
+
+.event-center {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1rem;
+    overflow: hidden;
+}
+
+.event-center img {
+    height: 220px;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+ 
+/* overlay imaga */
+
+.event-center:hover img {
+    transform: scale(1.1);
+}
+
+.event-center::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.event-center:hover::after {
+    opacity: 1;
+}
+
+.event-center img:first-child {
+    margin-right: -30px;
+}
+
+.event-center img:last-child {
+    margin-left: -30px;
+}
+
+
+
+.event-right {
+    flex: 1.2;
+    text-align: left;
+}
+
+.event-right h3 {
+    font-size: 22px;
+    margin-bottom: 1rem;
+    text-shadow: none;
+    text-align: left;
+}
+
+.event-right p {
+    font-size: 14px;
+    margin-bottom: 0.4rem;
+}
+
+.event-btn {
+    margin-top: 1rem;
+    padding: 0.7rem 1.2rem;
+    border: 1px solid black;
+    background: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.event-btn {
+    margin-top: 1rem;
+    padding: 0.7rem 1.2rem;
+    border: 1px solid black;
+    background: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.event-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+/*ranking*/
+
+.rankings {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 4rem 6%;
+    gap: 2.5rem;
+    background: white;
+}
+
+.rank-card {
+    text-align: left;
+}
+
+.rank-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: red;
+    margin-bottom: 0.5rem;
+}
+
+.rank-card h2 {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    text-shadow: none;
+    text-align: left;
+}
+
+.champion {
+    display: block;
+    min-height: 18px;
+    font-size: 12px;
+    color: gray;
+    font-weight: 600;
+}
+
+.rank-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: contain;
+    object-position: bottom;
+    margin: 1rem 0;
+}
+
+.rank-card ol {
+    list-style: none;
+    padding: 0;
+}
+
+.rank-card li {
+    font-size: 14px;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+
+/*overlay ranking */
+
+.fighter-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.fighter-img img {
+    width: 100%;
+    transition: transform 0.4s ease;
+}
+
+.fighter-img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transition: 0.4s ease;
+    pointer-events: none;
+}
+
+.fighter-img:hover img {
+    transform: scale(1.08);
+}
+
+.fighter-img:hover::after {
+    opacity: 1;
+}
+
+
+/*ranking list*/
+
+.ranking-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: rank;
+}
+
+.ranking-list li {
+    counter-increment: rank;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.ranking-list li::before {
+    content: counter(rank);
+    font-weight: 700;
+    width: 20px;
+    margin-right: 10px;
+}
+
+
+/*athelete*/
+
+.athlete-page {
+    width: 100%;
+    background: #f7f7f7;
+    padding: 40px 0;
+}
+
+.athlete-card {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 30px 40px;
+    margin-bottom: 5px;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e500;
+    gap: 40px;
+}
+
+.athlete-left {
+    width: 180px;
+    font-size: 12px;
+    color: #999;
+}
+
+
+.athlete-left .division {
+    display: block;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.athlete-image {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.athlete-image img {
+    width: 260px;
+}
+
+
+.athlete-info {
+    flex: 1;
+    padding-left: 30px;
+    margin-left: 400px;
+}
+
+.nickname {
+    font-size: 12px;
+    color: #aaa;
+    letter-spacing: 1px;
+}
+
+.athlete-info h2 {
+    margin: 5px 0;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.record {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.last-fight {
+    font-size: 14px;
+    color: #444;
+}
+
+.athlete-action {
+    width: 120px;
+    text-align: right;
+}
+
+
+.follow-btn {
+    padding: 10px 25px;
+    background: transparent;
+    border: 1px solid #ccc;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.follow-btn:hover {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+
+/*footer*/
+
+/* footer */
+
+.footer {
+  background-color: #000;
+  padding: 60px 80px;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* KIRI */
+.footer-left {
+  flex: 1;
+}
+
+.footer-logo {
+  width: 90px;
+}
+
+/* TENGAH (KOSONG) */
+.footer-center {
+  flex: 2;
+}
+
+/* KANAN */
+.footer-right {
+  flex: 4;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.footer-col h4 {
+  font-size: 14px;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: #9aa0a6;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #fff;
+}
+
+
+/*form*/
+
+.ufc-signup {
+    min-height: 100vh;
+    background: url("hex-bg.jpg") center / cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.signup-box {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(0,0,0,0.65);
+    padding: 40px 35px;
+    color: #fff;
+    text-align: center;
+    backdrop-filter: blur(6px);
+}
+
+.signup-box h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.signup-box h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.desc {
+    font-size: 13px;
+    color: #ccc;
+    margin-bottom: 12px;
+}
+
+.desc.small {
+    margin-bottom: 25px;
+}
+
+.signup-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.signup-box input,
+.signup-box select {
+    padding: 12px;
+    border: none;
+    font-size: 14px;
+    background: #fff;
+    color: #000;
+}
+
+.signup-box input:focus,
+.signup-box select:focus {
+    outline: 2px solid #b30000;
+}
+
+.checkbox {
+    display: flex;
+    gap: 10px;
+    font-size: 11px;
+    text-align: left;
+    color: #ccc;
+    margin: 10px 0 20px;
+}
+
+.checkbox input {
+    margin-top: 3px;
+}
+
+.signup-box button {
+    background: #b30000;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.signup-box button:hover {
+    background: #ff0000;
+}
+
+/*news*/
+/* NEWS GRID */
+.blog-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 60px 6%;
+}
+
+/* CARD */
+.news-card {
+    background: #fff;
+    text-decoration: none;
+    color: #000;
+    display: block;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* IMAGE */
+.news-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+/* CONTENT */
+.news-content {
+    padding: 20px;
+}
+
+.news-tag {
+    color: red;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.news-date {
+    float: right;
+    font-size: 12px;
+    color: #999;
+}
+
+.news-content h3 {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+/* HOVER ANIMATION */
+.news-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.news-content h3 {
+    text-align: left;
+    margin-top: 15px;
+    font-size: 20px;
+    text-shadow: none;
+}
+.news-card:active {
+    transform: scale(1.02);
+}
+
+/*deksripsi*/
+
+/* HISTORY PAGE */
+.history-hero {
+    background: url("img/deks.jpg") center/cover no-repeat;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 6%;
+}
+
+.history-hero h1 {
+    font-size: 42px;
+    font-weight: 700;
+    text-shadow: none;
+}
+
+.history-hero h2 {
+    font-size: 18px;
+    color: red;
+    margin-top: 10px;
+    text-shadow: none;
+}
+
+.history-content {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 6%;
+}
+
+.history-article {
+    margin-bottom: 50px;
+}
+
+.history-article h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    text-align: left; /* tidak ikut h3 global */
+    text-shadow: none;
+}
+
+.history-article p {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+
+
+
+
+@media (max-width: 900px) {
+    .blog-list {
+        grid-template-columns: 1fr;
+    }
+}
